@@ -14,9 +14,9 @@ public class LoginController {
 //    Jackson String json ==> objeye dönüştüren yapıya
 
     // http://localhost:8080/api/logins/create
-    @CrossOrigin
+    // @CrossOrigin //webpack proxy yaparsan(package.json proxy ) @CrossOrigin yazmana gerek yok
     @PostMapping(value = "/logins/create")
-    public void createLogin(@RequestBody LoginDto dto ) {
+    public void createLogin(@RequestBody LoginDto dto) {
         log.info(dto);
     }
 }

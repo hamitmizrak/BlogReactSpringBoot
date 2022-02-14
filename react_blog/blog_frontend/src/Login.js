@@ -8,30 +8,16 @@ class Login extends React.Component {
     repassword: null,
   };
 
-  onChangeUsername = (event) => {
-    this.setState({
-      username: event.target.value,
-    });
+  onChange = (event) => {
+    //1.yol :Object Destructuring
+    const {name,value} = event.target;
+
+    //2.yol
+      // const value=event.target.value;
+    // const key=event.target.name;
+
+    this.setState({ [name]: value });
   };
-
-
-  onChangeEmail = (event) => {
-    this.setState({
-        emailaddres: event.target.value,
-    });
-  };
-
-  onChangePassword = (event) => {
-    this.setState({
-      password: event.target.value,
-    });
-  };
-
-  onChangeRepassword=(event)=>{
-      this.setState({
-          repassword:event.target.value
-      })
-  }
 
   render() {
     return (
@@ -39,19 +25,19 @@ class Login extends React.Component {
         <h1>Login</h1>
         <div>
           <label>User name</label>
-          <input  onChange={this.onChangeUsername} />
+          <input name="username" onChange={this.onChange} />
         </div>
         <div>
           <label>Email Address</label>
-          <input  onChange={this.onChangeEmail} />
+          <input name="emailaddres" onChange={this.onChange} />
         </div>
         <div>
           <label>Password</label>
-          <input  type="password" onChange={this.onChangePassword} />
+          <input name="password" type="password" onChange={this.onChange} />
         </div>
         <div>
           <label>Re-Password</label>
-          <input  type="password" onChange={this.onChangeRepassword}/>
+          <input name="repassword" type="password" onChange={this.onChange} />
         </div>
         <div>
           <button>Sign </button>

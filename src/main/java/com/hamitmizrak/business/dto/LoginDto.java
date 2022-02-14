@@ -13,6 +13,4 @@ public class LoginDto {
     private String username;
     private String emailaddres;
     private String password;
-    private String repassword;
-
 }

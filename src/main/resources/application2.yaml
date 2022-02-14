@@ -1,2 +1,9 @@
 
-
+spring:
+  datasource:
+    url:jdbc:h2:./innova
+    username: root
+    password: root
+   jpa:
+     hibernate:
+       ddl-auto:update

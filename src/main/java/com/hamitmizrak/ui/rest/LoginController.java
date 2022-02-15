@@ -5,6 +5,8 @@ import com.hamitmizrak.business.services.LoginServices;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 //    @RequestMapping("/api")
@@ -23,8 +25,9 @@ public class LoginController {
     // http://localhost:8080/api/logins/create
     // @CrossOrigin //webpack proxy yaparsan(package.json proxy ) @CrossOrigin yazmana gerek yok
     @PostMapping(value = "/logins/create")
-    public void createLogin(@RequestBody LoginDto loginDto) {
+    public ResponseEntity<LoginDto> createLogin(@RequestBody LoginDto loginDto) {
         loginServices.save(loginDto);
         log.info(loginDto);
+        return ResponseEntity.status(HttpStatus.OK).body(loginDto);
     }
 }

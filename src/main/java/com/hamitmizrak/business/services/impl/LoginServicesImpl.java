@@ -6,8 +6,11 @@ import com.hamitmizrak.data.entity.LoginEntity;
 import com.hamitmizrak.data.repository.LoginRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
@@ -19,9 +22,27 @@ public class LoginServicesImpl implements LoginServices {
     @Autowired
     private ModelMapper modelMapper;
 
+    //Bcryped: password şifreleme
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    //Autowired yaptığımızda hemen hazır olsun ama parametresiz constructorda new yapsak nullpointer gelir
+    //1.YOL
+    @PostConstruct
+    public void init() {
+        passwordEncoder = new BCryptPasswordEncoder();
+    }
+
+    //2.YOL
+    //    public LoginServicesImpl() {
+    //        this.passwordEncoder=new BCryptPasswordEncoder();
+    //    }
+
     @Override
     public void save(LoginDto loginDto) {
-        LoginEntity loginEntity=DtoToEntity(loginDto);
+        String encrpytedPass = this.passwordEncoder.encode(loginDto.getPassword());
+        loginDto.setPassword(encrpytedPass);
+        LoginEntity loginEntity = DtoToEntity(loginDto);
         loginRepository.save(loginEntity);
     }
 

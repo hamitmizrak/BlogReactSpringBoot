@@ -4,7 +4,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+//Auditing aktif etmek için
+@EnableJpaAuditing  // Update/insert kim ve ne zaman yaptını kayıtını tutan Entity sınıfı
 @SpringBootApplication
 public class BlogReactSpringApplication {
 
@@ -13,8 +16,8 @@ public class BlogReactSpringApplication {
     }
 
 
-    @Bean
-    public ModelMapper modelMapper(){
-        return new ModelMapper();
-    }
+//    @Bean
+//    public ModelMapper modelMapper(){
+//        return new ModelMapper();
+//    }
 }

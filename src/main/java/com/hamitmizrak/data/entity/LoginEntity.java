@@ -17,19 +17,15 @@ import java.util.Date;
 
 @Entity
 @Table(name= "login")
-public class LoginEntity implements Serializable {
+public class LoginEntity extends BaseEntity implements Serializable {
 
-    @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @Column(name = "user_name")
     private String username;
+
+    @Column(name = "email_address")
     private String emailaddres;
+
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "created_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreationTimestamp
-    private Date date;
 }

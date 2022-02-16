@@ -5,12 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from "./login_page/login";
 import './boostrap_data.scss'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Employee from "./Employee";
 
+
+//<Login />
 ReactDOM.render(
-  <React.StrictMode>
-    <Login />
-  </React.StrictMode>,
-  document.getElementById("root")
+    <React.StrictMode>
+        <Employee/>
+    </React.StrictMode>,
+    document.getElementById("root")
 );
 
 

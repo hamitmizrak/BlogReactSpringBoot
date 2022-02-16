@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import EmployeeService from "../services/EmployeeService";
+
 import axios from "axios";
 
 export default class CreateEmployeeComponent extends Component {
@@ -37,10 +37,9 @@ export default class CreateEmployeeComponent extends Component {
     };
     console.log("employee ==> " + JSON.stringify(employee));
 
-    axios.post('/api/v1/post/employees',employee).then(res=>{
-        this.props.history.push('/employees')
-    })
-   
+    axios.post("/api/v1/post/employees", employee).then((res) => {
+      this.props.history.push("/employees");
+    });
   };
 
   //temizle
@@ -59,45 +58,20 @@ export default class CreateEmployeeComponent extends Component {
                 <form>
                   <div className="form-group">
                     <label>Adı</label>
-                    <input
-                      placeholder="Adı giriniz"
-                      name="firstName"
-                      className="form-control"
-                      value={this.state.firstName}
-                      onChange={this.changeFirstName}
-                    />
+                    <input placeholder="Adı giriniz" name="firstName" className="form-control" value={this.state.firstName} onChange={this.changeFirstName} />
                   </div>
 
                   <div className="form-group">
                     <label>Soyadı</label>
-                    <input
-                      placeholder="Soyadı giriniz"
-                      name="lastName"
-                      className="form-control"
-                      value={this.state.lastName}
-                      onChange={this.changeLastName}
-                    />
+                    <input placeholder="Soyadı giriniz" name="lastName" className="form-control" value={this.state.lastName} onChange={this.changeLastName} />
                   </div>
 
                   <div className="form-group">
                     <label>Email</label>
-                    <input placeholder="Email giriniz"  name="emailId"  className="form-control"
-                      value={this.state.emailId}
-                      onChange={this.changeEmailId}
-                    />
+                    <input placeholder="Email giriniz" name="emailId" className="form-control" value={this.state.emailId} onChange={this.changeEmailId} />
                   </div>
-                  <button
-                    className="btn btn-success"
-                    onClick={this.saveEmployee}
-                  >
-                    Kaydet
-                  </button>
-                  <button
-                    className="btn btn-danger"
-                    onClick={this.cancel.bind(this)}
-                  >
-                    Temizle
-                  </button>
+                  <button className="btn btn-success" onClick={this.saveEmployee} > Kaydet </button>
+                  <button className="btn btn-danger" onClick={this.cancel.bind(this)} > Temizle </button>
                 </form>
               </div>
             </div>

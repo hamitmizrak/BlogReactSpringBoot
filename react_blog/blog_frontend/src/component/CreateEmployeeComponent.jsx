@@ -37,7 +37,9 @@ export default class CreateEmployeeComponent extends Component {
     };
     console.log("employee ==> " + JSON.stringify(employee));
 
-    axios.post('/api/v1/post/employees',employee)
+    axios.post('/api/v1/post/employees',employee).then(res=>{
+        this.props.history.push('/employees')
+    })
    
   };
 

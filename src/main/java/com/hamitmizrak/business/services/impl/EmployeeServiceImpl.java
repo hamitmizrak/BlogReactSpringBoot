@@ -7,6 +7,7 @@ import com.hamitmizrak.data.repository.EmployeeRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class EmployeeServiceImpl implements EmployeeServices {
 
     //SAVE
     @Override
-    public void save(EmployeeDto employeeDto) {
+    public void save(@RequestBody  EmployeeDto employeeDto) { //@RequestBody
         EmployeeEntity employeeEntity = DtoToEntity(employeeDto);//ModelMapper
         employeeRepository.save(employeeEntity);
     }

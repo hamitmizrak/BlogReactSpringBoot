@@ -14,7 +14,6 @@ public class EmployeeController {
     @Autowired
     public EmployeeServices employeeServices;
 
-
     //GET LIST
     // http://localhost:8080/api/v1/employees/list
     @GetMapping("/employees/list")
@@ -35,7 +34,7 @@ public class EmployeeController {
     //POST
     // http://localhost:8080/api/v1/post/employees
     @PostMapping(path = "/post/employees")
-    public EmployeeDto postRestTeacher(EmployeeDto teacherDto) {
+    public EmployeeDto postRestTeacher(@RequestBody EmployeeDto teacherDto) {
         employeeServices.save(teacherDto);
         return teacherDto;
     }

@@ -22,7 +22,6 @@ import java.io.Serializable;
 @Table(name= "employee")
 public class EmployeeEntity  extends BaseEntity implements Serializable {
 
-
     @Column(name = "first_name")
     private String firstName;
 

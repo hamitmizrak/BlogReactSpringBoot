@@ -1,40 +1,48 @@
 import React, { Component } from 'react'
+import Person from './Person'
 
 export default class PersonList extends Component {
-    constructor(props){
-        super(props)
-        this.state={
-            person:[
-                    {
-                      login: "mojombo",
-                      name: "name-1",
-                      id: 1,
-                      node_id: "MDQ6VXNlcjE=",
-                      html_url: "https://github.com/mojombo"
-                    },
-                    {
-                      login: "defunkt",
-                      name: "name-2",
-                      id: 2,
-                      node_id: "MDQ6VXNlcjI=",
-                      html_url: "https://github.com/defunkt"
-                    },
-                    {
-                      login: "pjhyett",
-                      name: "name-3",
-                      id: 3,
-                      node_id: "MDQ6VXNlcjM=",
-                      html_url: "https://avatars.githubusercontent.com/u/3?v=4"
-                    }
+    constructor(props) {
+        super(props);
+        this.state = {
+            persons: [
+                {
+                    id: 1,
+                    login: "hamitmizrak",
+                    avatar_url: "https://avatars.githubusercontent.com/u/15179871?v=4",
+                    html_url: "https://github.com/hamitmizrak",
+                  },
+                  {
+                    id: 2,
+                    login: "hamitmizrak",
+                    avatar_url: "https://avatars.githubusercontent.com/u/15179871?v=4",
+                    html_url: "https://github.com/hamitmizrak",
+                  },
+                  {
+                    id: 3,
+                      login: "hamitmizrak",
+                      avatar_url: "https://avatars.githubusercontent.com/u/15179871?v=4",
+                      html_url: "https://github.com/hamitmizrak",
+                  },
+                  {
+                    id: 4,
+                    login: "hamitmizrak",
+                    avatar_url: "https://avatars.githubusercontent.com/u/15179871?v=4",
+                    html_url: "https://github.com/hamitmizrak",
+                  }
             ]
         }
     }
-  render() {
-    return (
-        <>
-        <p>PersonList</p>
-        <p> {this.state.person.map(temp=>  {return <div>{temp.login}</div> } )}</p>
-        </>
-    )
-  }
+    render() {
+        return (
+            <div className="container mt-3">
+                <div className="row">
+                    {this.state.persons.map(temp => (
+                        <Person peson={temp} key={temp.id} />
+                    ))}
+                </div>
+            </div>
+        )
+    }
 }
+

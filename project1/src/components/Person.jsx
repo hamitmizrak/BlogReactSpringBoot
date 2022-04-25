@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class Person extends Component {
     render() {
-        const {id,login,avatar_url,html_url} = this.props.peson;
+        const {id,login,avatar_url,html_url} = this.props.peson55;
         return (
                 <div className="col-sm-6 col-md-4  col-lg-3">
                     <div className="card">

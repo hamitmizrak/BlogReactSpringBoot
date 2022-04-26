@@ -30,7 +30,7 @@ export class App extends Component {
                     loading:false
                 });
             });
-        }, 4000);
+        }, 1000);
     }
     
     render() {

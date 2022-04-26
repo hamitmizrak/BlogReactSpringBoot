@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import Search from './Search'
 
 export class Navbar extends Component {
     render() {
@@ -30,10 +31,8 @@ export class Navbar extends Component {
                                 </div>
                             </li>
                         </ul>
-                        <form className="d-flex my-2 my-lg-0">
-                            <input className="form-control me-sm-2" type="text" placeholder="Search"/>
-                            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+                        {/* search için */}
+                        <Search />
                     </div>
                 </div>
             </nav>

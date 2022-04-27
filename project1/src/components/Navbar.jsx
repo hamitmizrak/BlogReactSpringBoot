@@ -1,8 +1,37 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Search from './Search'
 
 export class Navbar extends Component {
+    constructor(props) {
+        super(props);
+        //bind:veri kaybolmaması icin
+        this.onChange = this.onChange.bind(this);
+
+        //bind:veri kaybolmaması icin
+        this.onSubmit = this.onSubmit.bind(this);
+
+        //state 
+        this.state = {
+            githubData: ''
+        }
+    }
+
+   //input içine birşeyler yazıldığında hemen almak istediğimizde
+    onChange(e) {
+ //console.log(e.target.value);
+        this.setState({
+            githubData: e.target.value
+        })
+    }
+
+        //input içine birşeyler yazıldıktan sonra submit edildiğinde
+    onSubmit(e) {
+        e.preventDefault();//sayfa yenilemeden
+               // console.log(this.state.data)
+        this.props.githubSearchPerson(this.state.githubData);
+        this.setState({ githubData: '' }); //input içindeki data silinmesini istiyorsak
+    }
+
     render() {
         return (
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -32,7 +61,23 @@ export class Navbar extends Component {
                             </li>
                         </ul>
                         {/* search için */}
-                        <Search />
+                        <form onSubmit={this.onSubmit}  className="d-flex my-2 my-lg-0">
+                    <div className="input-group">
+                        <input type="text" className="form-control form-control me-sm-2"
+                        value={this.state.githubData } onChange={this.onChange}
+                               placeholder="Arama için yazınız..."/>
+                        <div className="input-group-append">
+                            <button type="submit" className="btn btn-outline-success my-2 my-sm-0">
+                                Arama
+                            </button>
+                       
+                            <button style={{display:this.props.showButtonList}} onClick={this.props.clearList} type="button" className="btn btn-outline-warning">
+                                Temizle
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                       
                     </div>
                 </div>
             </nav>
@@ -42,8 +87,9 @@ export class Navbar extends Component {
 
 Navbar.defaultProps = {
     content: 'Github',
-    icon: 'fa-brands fa-blogger'
+    icon: 'fa-brands fa-github-alt'
 }
+
 
 Navbar.propTypes = {
     content: PropTypes.string.isRequired,

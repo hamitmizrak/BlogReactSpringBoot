@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
-import loading from './load.gif'
+import React from 'react'
+import loading from './loading.gif'
 
+// url: https://giphy.com/explore/loading
 // // racf ==>react arrow component function ==> TAB  
 //state kullanmayacağın zaman  için function kullanabilirsin
-class Loading extends Component {
-    render() {
-        return (
-            <React.Fragment>
-        <img src={loading} alt="loading ..." style={{width:'180px',display:'block',margin:'auto'}}/>
-    </React.Fragment>
-        );
-    }
+const Loading = () => {
+    return (
+        <React.Fragment>
+            <img src={loading} alt="Loading..." 
+            style={{width: '300px', backgroundColor:'white', paddingTop:'210px', display: 'block', margin: 'auto'}}/>
+        </React.Fragment>
+    )
 }
-
-export default Loading;
+export  default Loading;
